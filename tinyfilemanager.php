@@ -2,6 +2,7 @@
 //Default Configuration
 $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":true,"hide_Cols":false,"calc_folder":false}';
 
+
 /**
  * H3K | Tiny File Manager V2.3.8
  * CCP Programmers | ccpprogrammers@gmail.com
@@ -86,7 +87,7 @@ $datetime_format = 'd.m.y H:i';
 
 // allowed file extensions for upload and rename
 // e.g. 'gif,png,jpg'
-$allowed_extensions = ''; 
+$allowed_extensions = '';
 
 // Favicon path. This can be either a full url to an .PNG image, or a path based on the document root.
 // full path, e.g http://example.com/favicon.png
@@ -388,9 +389,9 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
             fm_set_msg('File not found', 'error');
             fm_redirect(FM_SELF_URL . '?p=' . urlencode(FM_PATH));
         }
-        header('X-XSS-Protection:0'); 
+        header('X-XSS-Protection:0');
         $file_path = $path . '/' . $file;
-        
+
         $writedata = $_POST['content'];
         $fd = fopen($file_path, "w");
         @fwrite($fd, $writedata);
@@ -398,7 +399,7 @@ if (isset($_POST['ajax']) && !FM_READONLY) {
         fm_set_msg('successful save!', 'alert');
         die(true);
     }
-    
+
     // backup files
     if (isset($_POST['type']) && $_POST['type'] == "backup") {
         $file = $_POST['file'];
@@ -3466,7 +3467,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
         if (n) {
             if(true){
                 var data = {ajax: true, content: n, type: 'save'};
-                
+
                 $.ajax({
                     type: "POST",
                     url: window.location,
@@ -3477,7 +3478,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
                     success: function(mes){window.onbeforeunload = function() {return}},
                     failure: function(mes) {alert("error");}
                 });
-                
+
             }
             else{
                 var a = document.createElement("form");
@@ -3553,7 +3554,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
         });
     });
 </script>
-<?php if (isset($_GET['edit']) && isset($_GET['env']) && FM_EDIT_FILE): 
+<?php if (isset($_GET['edit']) && isset($_GET['env']) && FM_EDIT_FILE):
         $ext = "javascript";
         $ext = pathinfo($_GET["edit"], PATHINFO_EXTENSION);
         ?>
